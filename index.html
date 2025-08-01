@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8"/>
   <title>🔴 Xem 4 Livestream YouTube + Chat | TrocTV</title>
   <style>
     body {
@@ -12,7 +12,9 @@
       padding: 20px;
       text-align: center;
     }
-    h1 { color: crimson; }
+    h1 {
+      color: crimson;
+    }
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -49,34 +51,43 @@
   </style>
 </head>
 <body>
-  <h1>📺 Xem 4 Livestream + Chat - TrocTV</h1>
-  <p>Dán 4 link YouTube live → xem + chat cùng lúc</p>
 
+  <h1>📺 Xem 4 Livestream + Chat - TrocTV</h1>
+
+  <!-- Tiêu đề Trầm Chí Thành -->
+  <div style="text-align:center; margin-top:20px; font-family:Arial, sans-serif;">
+    <div style="font-size:16px; color:#aaa;">Được tạo bởi</div>
+    <div style="font-size:36px; font-weight:bold; font-family:'Bebas Neue', Impact, sans-serif; color:#e53935;">
+      TRẦM CHÍ THÀNH
+    </div>
+  </div>
+
+  <!-- Khung nhập livestream -->
   <div class="grid">
     <div class="box">
-      <input id="link1" placeholder="Link livestream 1" />
-      <button onclick="loadEmbed(1)">Nhúng</button><br />
+      <input id="link1" placeholder="Link livestream 1"/>
+      <button onclick="loadEmbed(1)">Nhúng</button><br/>
       <iframe id="video1" height="200"></iframe>
       <iframe id="chat1" height="300"></iframe>
     </div>
 
     <div class="box">
-      <input id="link2" placeholder="Link livestream 2" />
-      <button onclick="loadEmbed(2)">Nhúng</button><br />
+      <input id="link2" placeholder="Link livestream 2"/>
+      <button onclick="loadEmbed(2)">Nhúng</button><br/>
       <iframe id="video2" height="200"></iframe>
       <iframe id="chat2" height="300"></iframe>
     </div>
 
     <div class="box">
-      <input id="link3" placeholder="Link livestream 3" />
-      <button onclick="loadEmbed(3)">Nhúng</button><br />
+      <input id="link3" placeholder="Link livestream 3"/>
+      <button onclick="loadEmbed(3)">Nhúng</button><br/>
       <iframe id="video3" height="200"></iframe>
       <iframe id="chat3" height="300"></iframe>
     </div>
 
     <div class="box">
-      <input id="link4" placeholder="Link livestream 4" />
-      <button onclick="loadEmbed(4)">Nhúng</button><br />
+      <input id="link4" placeholder="Link livestream 4"/>
+      <button onclick="loadEmbed(4)">Nhúng</button><br/>
       <iframe id="video4" height="200"></iframe>
       <iframe id="chat4" height="300"></iframe>
     </div>
@@ -100,5 +111,6 @@
       document.getElementById("chat" + num).src = `https://www.youtube.com/live_chat?v=${id}&embed_domain=${location.hostname}`;
     }
   </script>
+
 </body>
 </html>
