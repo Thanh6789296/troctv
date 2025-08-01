@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>🔴 Xem 4 Livestream YouTube + Chat | TrocTV</title>
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 { color: crimson; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .box {
+      background: #222;
+      padding: 10px;
+      border-radius: 12px;
+    }
+    input {
+      width: 80%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+    button {
+      padding: 8px 16px;
+      background: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    iframe {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📺 Xem 4 Livestream + Chat - TrocTV</h1>
+  <p>Dán 4 link YouTube live → xem + chat cùng lúc</p>
+
+  <div class="grid">
+    <div class="box">
+      <input id="link1" placeholder="Link livestream 1" />
+      <button onclick="loadEmbed(1)">Nhúng</button><br />
+      <iframe id="video1" height="200"></iframe>
+      <iframe id="chat1" height="300"></iframe>
+    </div>
+
+    <div class="box">
+      <input id="link2" placeholder="Link livestream 2" />
+      <button onclick="loadEmbed(2)">Nhúng</button><br />
+      <iframe id="video2" height="200"></iframe>
+      <iframe id="chat2" height="300"></iframe>
+    </div>
+
+    <div class="box">
+      <input id="link3" placeholder="Link livestream 3" />
+      <button onclick="loadEmbed(3)">Nhúng</button><br />
+      <iframe id="video3" height="200"></iframe>
+      <iframe id="chat3" height="300"></iframe>
+    </div>
+
+    <div class="box">
+      <input id="link4" placeholder="Link livestream 4" />
+      <button onclick="loadEmbed(4)">Nhúng</button><br />
+      <iframe id="video4" height="200"></iframe>
+      <iframe id="chat4" height="300"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function extractVideoId(url) {
+      const regex = /(?:v=|\/)([0-9A-Za-z_-]{11})/;
+      const match = url.match(regex);
+      return match ? match[1] : null;
+    }
+
+    function loadEmbed(num) {
+      const link = document.getElementById("link" + num).value;
+      const id = extractVideoId(link);
+      if (!id) {
+        alert("Link sai hoặc thiếu ID");
+        return;
+      }
+      document.getElementById("video" + num).src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+      document.getElementById("chat" + num).src = `https://www.youtube.com/live_chat?v=${id}&embed_domain=${location.hostname}`;
+    }
+  </script>
+</body>
+</html>
